@@ -1,0 +1,169 @@
+;; Init package.el
+(require 'package)
+(package-initialize)
+
+;; Add additional ELPA repos
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("marmalade"
+                         . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")))
+
+
+;;
+;; Disable creating of lock files (https://www.gnu.org/software/emacs/manual/html_node/emacs/Interlocking.html#Interlocking)
+;;
+(setq create-lockfiles nil)
+
+;;
+;; Enable line numbers
+;;
+(global-linum-mode 1)
+
+
+;;
+;; Set cursor properties
+;;
+(setq-default cursor-type 'bar)
+(set-cursor-color "#ffffff") 
+
+
+;;
+;; Enable smooth scrolling
+;;
+;; scroll one line at a time (less "jumpy" than defaults)    
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+(setq scroll-step 1) ;; keyboard scroll one line at a time
+
+
+;;
+;; Turn off the top bar
+;;
+(menu-bar-mode -1) 
+
+
+
+    ;; Save all tempfiles in $TMPDIR/emacs$UID/                                                        
+    (defconst emacs-tmp-dir (format "%s/%s%s/" temporary-file-directory
+    "emacs" (user-uid)))
+    (setq backup-directory-alist
+        `((".*" . ,emacs-tmp-dir)))
+    (setq auto-save-file-name-transforms
+        `((".*" ,emacs-tmp-dir t)))
+    (setq auto-save-list-file-prefix
+        emacs-tmp-dir)
+
+;;
+;; Set ample theme (https://github.com/jordonbiondo/ample-theme)
+;;
+(load-theme 'ample t t)
+(load-theme 'ample-flat t t)
+(load-theme 'ample-light t t)
+(enable-theme 'ample)
+
+
+;;
+;; Show whitespaces (built-in)
+;;
+(require 'whitespace)
+
+
+;;
+;; Customize mode line (https://github.com/Malabarba/smart-mode-line)
+;;
+(setq sml/no-confirm-load-theme t)
+(setq sml/theme 'dark)
+(sml/setup)
+
+
+;; smart cursor
+(smart-cursor-color-mode +1)
+
+
+;;
+;; Powerline (https://github.com/jonathanchu/emacs-powerline)
+;;
+;;(add-to-list 'load-path "~/.emacs.d/vendor/emacs-powerline")
+;;(require 'powerline)
+;;(setq powerline-arrow-shape 'arrow14)
+
+
+;; Powerline (https://github.com/Dewdrops/powerline)
+;;(add-to-list 'load-path "~/.emacs.d/vendor/powerline")
+;;(require 'powerline)
+;;(powerline-center-evil-theme)
+
+
+;;
+;; ElScreen
+;;
+(setq elscreen-prefix-key "\C-z")
+
+
+;;
+;; Load additional scripts/congigs
+;;
+;; mpsyt emacs https://punchagan.muse-amuse.in/posts/playing-music-using-mpsyt-from-emacs.html
+
+(defun pc/short-url-at-point ()
+  "Gets the short url at point.
+
+This function is required only because
+`thing-at-point-url-at-point' ignores urls (without a scheme)
+that don't start with www."
+  (let ((bounds (thing-at-point-bounds-of-url-at-point t)))
+    (when (and bounds (< (car bounds) (cdr bounds)))
+      (buffer-substring-no-properties (car bounds) (cdr bounds)))))
+
+(defun pc/mpsyt-url (url)
+  (let ((buffer (current-buffer))
+	(mpsyt-proc-name "*mpsyt*"))
+
+    ;; Start a new term with *mpsyt* if there isn't one
+    (unless (get-process mpsyt-proc-name)
+      (when (get-buffer mpsyt-proc-name)
+	(kill-buffer (get-buffer mpsyt-proc-name)))
+      (ansi-term "mpsyt" "mpsyt"))
+
+    ;; Play given url in mpsyt
+    (let ((mpsyt-proc (get-process mpsyt-proc-name)))
+      ;; If something is already playing, stop it and play this...
+      (term-send-string mpsyt-proc "\n\n\n")
+      ;; We wait for a bit, since looking for the prompt seems to fail, sometimes?
+      (sleep-for 1)
+      (term-send-string mpsyt-proc "\n")
+
+      ;; Actually send the command to playurl
+      (term-simple-send (get-process mpsyt-proc-name)
+			(format "playurl %s" url)))
+
+    (switch-to-buffer buffer)))
+
+(defun pc/mpsyt-url-at-point ()
+  "Play the URL at point using mpsyt."
+  (interactive)
+  (let ((url (or (url-get-url-at-point) (pc/short-url-at-point))))
+    (if (not url)
+      (message "No URL found")
+	(message (format "Playing %s with mpsyt" url))
+      (pc/mpsyt-url url))))
+
+;;
+;; End load
+;;
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (elscreen projectile-rails smart-mode-line smart-cursor-color magit evil ample-theme))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
