@@ -1,0 +1,36 @@
+
+;; ----- smex-history -----
+(
+ magit-log
+ project-explorer-open
+ package-install
+ package-refresh-contents
+ whitespace-mode
+ describe-variable
+ visible-mode
+)
+
+;; ----- smex-data -----
+(
+ (cd . 1)
+ (package-refresh-contents . 8)
+ (package-install . 9)
+ (drag-stuff-right . 1)
+ (drag-stuff-mode . 1)
+ (ample-flat-theme . 2)
+ (ample-light-theme . 1)
+ (ample-theme . 1)
+ (zone . 1)
+ (zone-mode . 1)
+ (magit-log . 6)
+ (show-paren-mode . 1)
+ (moe-dark . 2)
+ (moe-theme-random-color . 11)
+ (moe-theme-select-color . 1)
+ (visible-whitespace-mode . 3)
+ (highlight-changes-visible-mode . 2)
+ (visible-mode . 1)
+ (describe-variable . 2)
+ (whitespace-mode . 3)
+ (project-explorer-open . 1)
+)

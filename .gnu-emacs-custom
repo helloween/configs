@@ -2,6 +2,7 @@
 (require 'package)
 (package-initialize)
 
+
 ;; Add additional ELPA repos
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("marmalade"
@@ -24,13 +25,19 @@
 ;; Set cursor properties
 ;;
 (setq-default cursor-type 'bar)
-(set-cursor-color "#ffffff") 
+(set-cursor-color "#ffffff")
+
+
+;;
+;; Save session
+;;
+(desktop-save-mode 1)
 
 
 ;;
 ;; Enable smooth scrolling
 ;;
-;; scroll one line at a time (less "jumpy" than defaults)    
+;; scroll one line at a time (less "jumpy" than defaults)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
@@ -40,45 +47,111 @@
 ;;
 ;; Turn off the top bar
 ;;
-(menu-bar-mode -1) 
+(menu-bar-mode -1)
 
 
+;;
+;; Reload buffer automatically
+;;
+(global-auto-revert-mode t)
 
-    ;; Save all tempfiles in $TMPDIR/emacs$UID/                                                        
-    (defconst emacs-tmp-dir (format "%s/%s%s/" temporary-file-directory
-    "emacs" (user-uid)))
-    (setq backup-directory-alist
-        `((".*" . ,emacs-tmp-dir)))
-    (setq auto-save-file-name-transforms
-        `((".*" ,emacs-tmp-dir t)))
-    (setq auto-save-list-file-prefix
-        emacs-tmp-dir)
+;;
+;; Key bindings for WindMove (https://www.emacswiki.org/emacs/WindMove)
+;;
+(global-set-key (kbd "C-c <left>")  'windmove-left)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+(global-set-key (kbd "C-c <up>")    'windmove-up)
+(global-set-key (kbd "C-c <down>")  'windmove-down)
+
+
+;;
+;; Enable whitespace mode (http://ergoemacs.org/emacs/whitespace-mode.html)
+;;
+(setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
+(setq whitespace-display-mappings
+       ;; all numbers are Unicode codepoint in decimal. try (insert-char 182 ) to see it
+      '(
+        (space-mark 32 [183] [46]) ; 32 SPACE, 183 MIDDLE DOT 「·」, 46 FULL STOP 「.」
+        (newline-mark)
+        (tab-mark 9 [9655 9] [92 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
+        ))
+
+
+;; Save all tempfiles in $TMPDIR/emacs$UID/
+(defconst emacs-tmp-dir (format "%s/%s%s/" temporary-file-directory
+"emacs" (user-uid)))
+(setq backup-directory-alist
+    `((".*" . ,emacs-tmp-dir)))
+(setq auto-save-file-name-transforms
+    `((".*" ,emacs-tmp-dir t)))
+(setq auto-save-list-file-prefix
+    emacs-tmp-dir)
+
 
 ;;
 ;; Set ample theme (https://github.com/jordonbiondo/ample-theme)
 ;;
-(load-theme 'ample t t)
-(load-theme 'ample-flat t t)
-(load-theme 'ample-light t t)
-(enable-theme 'ample)
+;;(load-theme 'ample t t)
+;;(load-theme 'ample-flat t t)
+;;(load-theme 'ample-light t t)
+;;(enable-theme 'ample-flat)
 
 
 ;;
 ;; Show whitespaces (built-in)
 ;;
-(require 'whitespace)
+;; (require 'whitespace)
+;; (autoload 'whitespace-mode           "whitespace" "Toggle whitespace visualization."        t)
+;; (autoload 'whitespace-toggle-options "whitespace" "Toggle local `whitespace-mode' options." t)
 
 
 ;;
 ;; Customize mode line (https://github.com/Malabarba/smart-mode-line)
 ;;
-(setq sml/no-confirm-load-theme t)
-(setq sml/theme 'dark)
-(sml/setup)
+;;(setq sml/no-confirm-load-theme t)
+;;(setq sml/theme 'dark)
+;;(sml/setup)
+
+
+;;
+;; Smex package (https://github.com/nonsequitur/smex/)
+;;
+(require 'smex) ; Not needed if you use package.el
+(smex-initialize) ; Can be omitted. This might cause a (minimal) delay
+                  ; when Smex is auto-initialized on its first run.
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+
+;;
+;; Drug stuff (https://github.com/rejeep/drag-stuff.el)
+;;
+(drag-stuff-global-mode 1)
+
+
+;;
+;; Web-mode (http://web-mode.org/)
+;;
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (set-face-attribute 'web-mode-html-tag-face nil :foreground "Pink3")
+)
+(add-hook 'web-mode-hook  'my-web-mode-hook)
 
 
 ;; smart cursor
-(smart-cursor-color-mode +1)
+;;(smart-cursor-color-mode +1)
 
 
 ;;
@@ -96,9 +169,38 @@
 
 
 ;;
+;; Moe-theme
+;;
+(require 'moe-theme)
+
+;; Show highlighted buffer-id as decoration. (Default: nil)
+(setq moe-theme-highlight-buffer-id t)
+
+;; Resize titles (optional).
+;; (setq moe-theme-resize-markdown-title '(1.5 1.4 1.3 1.2 1.0 1.0))
+;; (setq moe-theme-resize-org-title '(1.5 1.4 1.3 1.2 1.1 1.0 1.0 1.0 1.0))
+;; (setq moe-theme-resize-rst-title '(1.5 1.4 1.3 1.2 1.1 1.0))
+
+;; Choose a color for mode-line.(Default: blue)
+(moe-theme-set-color 'cyan)
+
+;; Finally, apply moe-theme now.
+;; Choose what you like, (moe-light) or (moe-dark)
+(moe-dark)
+
+
+;;
 ;; ElScreen
 ;;
 (setq elscreen-prefix-key "\C-z")
+
+
+;;
+;; ace jump mode (https://github.com/winterTTr/ace-jump-mode)
+;;
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
+
 
 
 ;;
@@ -160,7 +262,7 @@ that don't start with www."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (elscreen projectile-rails smart-mode-line smart-cursor-color magit evil ample-theme))))
+    (project-explorer ace-jump-mode moe-theme web-mode drag-stuff smex list-packages-ext elscreen projectile-rails smart-mode-line smart-cursor-color magit evil ample-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
