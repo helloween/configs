@@ -2,171 +2,39 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Thu Sep 29 21:28:18 2016
+;; Created Fri Sep 30 06:56:42 2016
 ;; Desktop file format version 208
 ;; Emacs version 25.1.1
 
 ;; Global section:
-(setq desktop-saved-frameset [frameset 1 (22509 23874 244734 166000) (desktop . "208") "yury@wsb-236a" nil nil ((((tty-type . "xterm-256color") (tty . "/dev/tty") (display-type . color) (background-mode . dark) (foreground-color . "#c6c6c6") (cursor-color . "#c6c6c6") (menu-bar-lines . 0) (background-color . "#303030") (font . "tty") (height . 58) (width . 205) (modeline . t) (unsplittable) (frameset--id . "56DE-25F5-E52B-E598") (frameset--mini t) (minibuffer . t)) ((min-height . 4) (min-width . 50) (min-height-ignore . 3) (min-width-ignore . 39) (min-height-safe . 1) (min-width-safe . 6) (min-pixel-height . 4) (min-pixel-width . 50) (min-pixel-height-ignore . 3) (min-pixel-width-ignore . 39) (min-pixel-height-safe . 1) (min-pixel-width-safe . 6)) hc (pixel-width . 205) (pixel-height . 57) (total-width . 205) (total-height . 57) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 40) (pixel-height . 57) (total-width . 40) (total-height . 57) (normal-height . 1.0) (normal-width . 0.19756097560975605) (buffer " *project-explorer*" (selected) (hscroll . 0) (fringes 0 0 nil) (margins 3) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated . t) (point . 478) (start . 1))) (hc (last . t) (pixel-width . 165) (pixel-height . 57) (total-width . 165) (total-height . 57) (normal-height . 1.0) (normal-width . 0.802439024390244) (combination-limit . t) (leaf (pixel-width . 83) (pixel-height . 57) (total-width . 83) (total-height . 57) (normal-height . 1.0) (normal-width . 0.5) (buffer "regression_calculation_worker.rb" (selected) (hscroll . 0) (fringes 0 0 nil) (margins 2) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 106) (start . 1))) (leaf (last . t) (pixel-width . 82) (pixel-height . 57) (total-width . 82) (total-height . 57) (normal-height . 1.0) (normal-width . 0.5) (buffer "*magit-log: Lens" (selected . t) (hscroll . 0) (fringes 0 0 nil) (margins nil . 28) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 1) (start . 1))))))])
+(setq desktop-saved-frameset [frameset 1 (22509 57978 405030 467000) (desktop . "208") "helloween@linux-55i7.site" nil nil ((((tty-type . "xterm-256color") (tty . "/dev/tty") (display-type . color) (background-mode . dark) (foreground-color . "#c6c6c6") (cursor-color . "#c6c6c6") (menu-bar-lines . 0) (background-color . "#303030") (font . "tty") (height . 39) (width . 135) (modeline . t) (unsplittable) (frameset--id . "775C-F91E-256B-9FA8") (frameset--mini t) (minibuffer . t)) ((min-height . 8) (min-width . 10) (min-height-ignore . 4) (min-width-ignore . 4) (min-height-safe . 2) (min-width-safe . 2) (min-pixel-height . 8) (min-pixel-width . 10) (min-pixel-height-ignore . 4) (min-pixel-width-ignore . 4) (min-pixel-height-safe . 2) (min-pixel-width-safe . 2)) vc (pixel-width . 135) (pixel-height . 38) (total-width . 135) (total-height . 38) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 135) (pixel-height . 19) (total-width . 135) (total-height . 19) (normal-height . 0.5) (normal-width . 1.0) (buffer "controllers" (selected . t) (hscroll . 0) (fringes 0 0 nil) (margins 2) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 834) (start . 1))) (leaf (last . t) (pixel-width . 135) (pixel-height . 19) (total-width . 135) (total-height . 19) (normal-height . 0.5) (normal-width . 1.0) (buffer "*Shell Command Output*" (selected) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 1) (start . 1)))))])
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
 (setq search-ring nil)
 (setq regexp-search-ring nil)
 (setq register-alist nil)
-(setq file-name-history '("~/radian/Lens/app/assets/stylesheets/calca_model_parameters.css" "~/radian/Lens/app/controllers/calc/recalculate_controller.rb" "~/radian/Lens/app/controllers/test_dir" "~/radian/Lens/public/app/controllers/" "~/radian/Lens"))
+(setq file-name-history '("/home/helloween/iTechArt/radian/Lens/.git/COMMIT_EDITMSG" "~/iTechArt/radian/Lens/" "~/iTechArt/radian/Lens/app/" "~/iTechArt/radian/Lens/"))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
 (desktop-create-buffer 208
-  "/home/yury/radian/Lens/app/workers/regression_calculation_worker.rb"
-  "regression_calculation_worker.rb"
-  'ruby-mode
-  '(linum-mode auto-revert-mode global-auto-revert-mode drag-stuff-mode inf-ruby-minor-mode global-whitespace-mode)
-  106
-  '(nil nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/home/yury/radian/Lens/app/assets/stylesheets/calca_model_parameters.css"
-  "calca_model_parameters.css"
-  'css-mode
-  '(linum-mode global-auto-revert-mode drag-stuff-mode global-whitespace-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/home/yury/radian/Lens/app/controllers/portfolios_controller.rb"
-  "portfolios_controller.rb"
-  'ruby-mode
-  '(linum-mode auto-revert-mode global-auto-revert-mode drag-stuff-mode inf-ruby-minor-mode whitespace-mode global-whitespace-mode)
-  7282
-  '(nil nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/home/yury/radian/Lens/app/controllers/attachments_controller.rb"
-  "attachments_controller.rb"
-  'ruby-mode
-  '(linum-mode auto-revert-mode global-auto-revert-mode drag-stuff-mode inf-ruby-minor-mode global-whitespace-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/home/yury/radian/Lens/app/controllers/calc_model_parameters_controller.rb"
-  "calc_model_parameters_controller.rb"
-  'ruby-mode
-  '(visible-mode linum-mode auto-revert-mode global-auto-revert-mode drag-stuff-mode inf-ruby-minor-mode global-whitespace-mode)
-  9
-  '(479 nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix))
-  '((mark-ring (721 909 776 419 1254))))
-
-(desktop-create-buffer 208
-  "/home/yury/radian/Lens/app/controllers/dummy_controller.rb"
-  "dummy_controller.rb"
-  'ruby-mode
-  '(linum-mode auto-revert-mode global-auto-revert-mode drag-stuff-mode inf-ruby-minor-mode global-whitespace-mode)
-  193
-  '(nil nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  nil
-  "Lens"
-  'dired-mode
-  '(linum-mode global-auto-revert-mode drag-stuff-mode global-whitespace-mode)
-  217
-  '(nil nil)
-  t
-  '("/home/yury/radian/Lens/")
-  nil
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/home/yury/radian/Lens/app/controllers/asset_type_attribute_values_controller.rb"
-  "asset_type_attribute_values_controller.rb"
-  'ruby-mode
-  '(linum-mode auto-revert-mode global-auto-revert-mode drag-stuff-mode inf-ruby-minor-mode whitespace-mode global-whitespace-mode)
-  1266
-  '(nil nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/home/yury/radian/Lens/circle.yml"
-  "circle.yml"
-  'fundamental-mode
-  '(linum-mode auto-revert-mode global-auto-revert-mode drag-stuff-mode global-whitespace-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  nil
-  "enums"
-  'dired-mode
-  '(linum-mode global-auto-revert-mode drag-stuff-mode global-whitespace-mode)
-  1
-  '(nil nil)
-  t
-  '("/home/yury/radian/Lens/app/enums/")
-  nil
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/home/yury/radian/Lens/public/app/controllers/manufacturersController.js"
-  "manufacturersController.js"
+  "/home/helloween/iTechArt/radian/Lens/public/app/controllers/documentController.js"
+  "documentController.js"
   'js-mode
-  '(linum-mode auto-revert-mode global-auto-revert-mode drag-stuff-mode global-whitespace-mode)
-  3600
-  '(2735 t)
+  '(linum-mode auto-revert-mode global-auto-revert-mode global-whitespace-mode drag-stuff-mode yas-minor-mode rainbow-delimiters-mode)
+  2600
+  '(2376 nil)
   nil
   nil
   '((buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
+  '((mark-ring (2300 2130))))
 
 (desktop-create-buffer 208
-  nil
-  "controllers"
-  'dired-mode
-  '(linum-mode global-auto-revert-mode drag-stuff-mode global-whitespace-mode)
-  1337
-  '(nil nil)
-  t
-  '("/home/yury/radian/Lens/public/app/controllers/")
-  nil
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/home/yury/radian/Lens/app/controllers/permissions_controller.rb"
-  "permissions_controller.rb"
+  "/home/helloween/iTechArt/radian/Lens/app/models/task.rb"
+  "task.rb"
   'ruby-mode
-  '(linum-mode auto-revert-mode global-auto-revert-mode drag-stuff-mode inf-ruby-minor-mode global-whitespace-mode)
-  493
+  '(linum-mode auto-revert-mode global-auto-revert-mode global-whitespace-mode drag-stuff-mode yas-minor-mode rainbow-delimiters-mode inf-ruby-minor-mode robe-mode)
+  6848
   '(nil nil)
   nil
   nil
@@ -174,60 +42,12 @@
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  nil
-  "controllers"
-  'dired-mode
-  '(linum-mode global-auto-revert-mode drag-stuff-mode global-whitespace-mode)
-  2467
-  '(nil nil)
-  t
-  '("/home/yury/radian/Lens/app/controllers/")
-  nil
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  nil
-  "app"
-  'dired-mode
-  '(linum-mode global-auto-revert-mode drag-stuff-mode global-whitespace-mode)
-  268
-  '(nil nil)
-  t
-  '("/home/yury/radian/Lens/app/")
-  nil
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/home/yury/radian/Lens/app/controllers/templates_controller.rb"
-  "templates_controller.rb"
+  "/home/helloween/iTechArt/radian/Lens/app/models/user.rb"
+  "user.rb"
   'ruby-mode
-  '(linum-mode auto-revert-mode global-auto-revert-mode drag-stuff-mode inf-ruby-minor-mode global-whitespace-mode)
-  134
-  '(nil nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/home/yury/radian/Lens/app/enums/devise_action.rb"
-  "devise_action.rb"
-  'ruby-mode
-  '(linum-mode auto-revert-mode global-auto-revert-mode drag-stuff-mode inf-ruby-minor-mode whitespace-mode global-whitespace-mode)
-  140
-  '(nil nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/home/yury/radian/Lens/app/controllers/ticket_categories_controller.rb"
-  "ticket_categories_controller.rb"
-  'ruby-mode
-  '(linum-mode auto-revert-mode global-auto-revert-mode drag-stuff-mode inf-ruby-minor-mode global-whitespace-mode)
-  330
-  '(nil nil)
+  '(linum-mode auto-revert-mode global-auto-revert-mode global-whitespace-mode drag-stuff-mode yas-minor-mode rainbow-delimiters-mode inf-ruby-minor-mode)
+  4828
+  '(1 nil)
   nil
   nil
   '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix))

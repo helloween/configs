@@ -1,20 +1,20 @@
 
 ;; ----- smex-history -----
 (
- magit-log
- project-explorer-open
- package-install
- package-refresh-contents
- whitespace-mode
- describe-variable
- visible-mode
+ eshell-command
+ shell-command
+ shell-mode
+ term
+ eshell
+ magit-log-current
+ magit-diff-staged
 )
 
 ;; ----- smex-data -----
 (
  (cd . 1)
- (package-refresh-contents . 8)
- (package-install . 9)
+ (package-refresh-contents . 25)
+ (package-install . 27)
  (drag-stuff-right . 1)
  (drag-stuff-mode . 1)
  (ample-flat-theme . 2)
@@ -22,15 +22,58 @@
  (ample-theme . 1)
  (zone . 1)
  (zone-mode . 1)
- (magit-log . 6)
+ (magit-log . 7)
  (show-paren-mode . 1)
- (moe-dark . 2)
+ (moe-dark . 5)
  (moe-theme-random-color . 11)
  (moe-theme-select-color . 1)
  (visible-whitespace-mode . 3)
- (highlight-changes-visible-mode . 2)
+ (highlight-changes-visible-mode . 3)
  (visible-mode . 1)
  (describe-variable . 2)
- (whitespace-mode . 3)
+ (whitespace-mode . 4)
  (project-explorer-open . 1)
+ (moe-light . 4)
+ (list-coding-systems . 1)
+ (list-colors-display . 1)
+ (ido-mode . 1)
+ (ido-vertical-mode . 1)
+ (sublimity-mode . 3)
+ (speedbar . 2)
+ (package-delete . 3)
+ (speedbar-next . 1)
+ (rainbow-delimiters-mode . 1)
+ (global-highlight-thing-mode . 2)
+ (prettify-symbols-mode . 1)
+ (ac-complete . 1)
+ (ac-start . 1)
+ (auto-complete-mode . 1)
+ (ag . 2)
+ (ag-files . 4)
+ (ag-project . 1)
+ (display-time . 3)
+ (display-buffer . 1)
+ (display-call-tree . 1)
+ (display-time-mode . 2)
+ (display-time-world . 1)
+ (winner-mode . 1)
+ (rvm-use . 1)
+ (rvm-activate-corresponding-ruby . 2)
+ (fiplr-find-file . 1)
+ (fiplr-find-directory . 1)
+ (inf-ruby-console-auto . 1)
+ (robe-start . 1)
+ (yas-global-mode . 1)
+ (magit-status . 1)
+ (magit-diff-popup . 1)
+ (magit-diff . 1)
+ (magit-diff-unstaged . 1)
+ (magit-diff-staged . 1)
+ (magit-log-current . 1)
+ (eshell . 1)
+ (term . 5)
+ (magit-stage . 1)
+ (shell-mode . 4)
+ (shell-command . 2)
+ (eshell-command . 1)
 )

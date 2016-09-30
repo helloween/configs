@@ -3,6 +3,12 @@
 (package-initialize)
 
 
+;;
+;; Set TERM env var to 'xterm-256color' (for the themes)
+;;
+(setenv "TERM" "xterm-256color")
+
+
 ;; Add additional ELPA repos
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("marmalade"
@@ -26,6 +32,15 @@
 ;;
 (setq-default cursor-type 'bar)
 (set-cursor-color "#ffffff")
+
+
+;;
+;; Display time in the modeline
+;;
+(display-time-mode 1)
+(setq display-time-day-and-date 1) 
+(setq display-time-24hr-format 1)
+;;(setq display-time-format "%I:%M:%S")
 
 
 ;;
@@ -67,6 +82,7 @@
 ;;
 ;; Enable whitespace mode (http://ergoemacs.org/emacs/whitespace-mode.html)
 ;;
+(global-whitespace-mode)
 (setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
 (setq whitespace-display-mappings
        ;; all numbers are Unicode codepoint in decimal. try (insert-char 182 ) to see it
@@ -201,7 +217,88 @@
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
 
+;;
+;; ido vertical mode (https://github.com/creichert/ido-vertical-mode.el)
+;;
+(require 'ido-vertical-mode)
+(ido-mode 1)
+(ido-vertical-mode 1)
+(setq ido-vertical-show-count t)
+(setq ido-use-faces t)
+(set-face-attribute 'ido-vertical-first-match-face nil
+                    :background nil
+                    :foreground "orange")
+(set-face-attribute 'ido-vertical-only-match-face nil
+                    :background nil
+                    :foreground nil)
+(set-face-attribute 'ido-vertical-match-face nil
+                    :foreground nil)
+(ido-vertical-mode 1)
 
+
+;;
+;; ido yes or no (https://github.com/DarwinAwardWinner/ido-yes-or-no)
+;;
+(require 'ido-yes-or-no)
+(ido-yes-or-no-mode 1)
+
+
+;;
+;; go to last change (https://github.com/camdez/goto-last-change.el)
+;;
+(require 'goto-last-change)
+(global-set-key "\C-x\C-g" 'goto-last-change)
+
+
+;;
+;; Rainbow delimiters (https://github.com/Fanael/rainbow-delimiters)
+;;
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+
+;;
+;; ag search (https://github.com/Wilfred/ag.el)
+;;
+;; requires the binary the_silver_searcher (sudo zypper in the_silver_searcher)
+
+
+;;
+;; rvm.el (https://github.com/senny/rvm.el)
+;;
+
+
+;;
+;; robe ()
+;;
+;;(add-hook 'ruby-mode-hook 'robe-mode)
+;;(eval-after-load 'company
+;;  '(push 'company-robe company-backends))
+;;(add-hook 'robe-mode-hook 'ac-robe-setup)
+
+
+;;
+;; fiplr (https://github.com/grizzl/fiplr)
+;;
+(setq fiplr-ignored-globs '((directories (".git" ".svn"))
+                            (files ("*.jpg" "*.png" "*.zip" "*~" ".keep"))))
+(global-set-key (kbd "C-x f") 'fiplr-find-file)
+(global-set-key (kbd "C-x g") 'fiplr-find-directory)
+
+
+;;
+;; yasnippet (https://github.com/joaotavora/yasnippet)
+;;
+(yas-global-mode 1)
+
+
+;;
+;; Magit
+;;
+(global-set-key (kbd "C-x x") 'magit-status)
+(global-set-key (kbd "C-x c") 'magit-diff-unstaged)
+(global-set-key (kbd "C-x w") 'magit-log-current)
+(global-set-key (kbd "C-x t") 'magit-commit)
+(global-set-key (kbd "C-x y") 'magit-commit-amend)
 
 ;;
 ;; Load additional scripts/congigs
@@ -262,7 +359,7 @@ that don't start with www."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (project-explorer ace-jump-mode moe-theme web-mode drag-stuff smex list-packages-ext elscreen projectile-rails smart-mode-line smart-cursor-color magit evil ample-theme))))
+    (yasnippet robe fiplr rvm ag rainbow-delimiters goto-last-change ido-yes-or-no ido-vertical-mode project-explorer ace-jump-mode moe-theme web-mode drag-stuff smex list-packages-ext elscreen projectile-rails smart-mode-line smart-cursor-color magit evil ample-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
